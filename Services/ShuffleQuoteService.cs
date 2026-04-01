@@ -1,8 +1,9 @@
+using VirtueTracker.Interfaces;
 using VirtueTracker.Models;
 
 namespace VirtueTracker.Services;
 
-public class ShuffleQuoteService
+public class ShuffleQuoteService : IShuffleQuoteService
 {
     private readonly QuoteRepository _repo;
     private Dictionary<string, List<Quote>> _quotes = [];

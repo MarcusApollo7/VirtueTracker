@@ -1,8 +1,7 @@
-
-using VirtueTracker.Models;
+using VirtueTracker.Interfaces;
 
 namespace VirtueTracker.Services;
-public class LanguageService
+public class LanguageService : ILanguageService
 {
     private string _currentLanguage = "en";
 

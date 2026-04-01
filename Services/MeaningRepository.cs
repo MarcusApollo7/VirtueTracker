@@ -1,8 +1,9 @@
 using SQLite;
+using VirtueTracker.Interfaces;
 using VirtueTracker.Models;
 
 namespace VirtueTracker.Services;
-public class MeaningRepository
+public class MeaningRepository : IMeaningRepository
 {
     private readonly SQLiteAsyncConnection _db;
 

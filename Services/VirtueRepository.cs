@@ -1,8 +1,9 @@
+using VirtueTracker.Interfaces;
 using VirtueTracker.Models;
 
 namespace VirtueTracker.Services;
 
-public class VirtueRepository
+public class VirtueRepository : IVirtueRepository
 {
     private readonly DatabaseService _db;
 

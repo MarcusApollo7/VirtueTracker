@@ -1,9 +1,10 @@
 using SQLite;
+using VirtueTracker.Interfaces;
 using VirtueTracker.Models;
 
 namespace VirtueTracker.Services;
 
-public class QuoteRepository
+public class QuoteRepository : IQuoteRepository
 {
     private readonly SQLiteAsyncConnection _db;
 
