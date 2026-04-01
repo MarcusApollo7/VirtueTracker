@@ -1,0 +1,65 @@
+{
+  "virtues": [
+    {
+      "id": "virtue_courage",
+      "name": "Courage",
+      "meanings": [
+        {
+          "id": "meaning_courage_1",
+          "texts": [
+            {
+              "id": "meaningtext_courage_1_en",
+              "language": "en",
+              "text": "Courage is the willingness to act despite fear."
+            }
+          ]
+        },
+        {
+          "id": "meaning_courage_2",
+          "texts": [
+            {
+              "id": "meaningtext_courage_2_en",
+              "language": "en",
+              "text": "Courage is choosing what is right even when it is difficult."
+            }
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "quote_courage_1",
+          "author": "Nelson Mandela",
+          "texts": [
+            {
+              "id": "quotetext_courage_1_en",
+              "language": "en",
+              "text": "Courage is not the absence of fear, but the triumph over it."
+            }
+          ]
+        },
+        {
+          "id": "quote_courage_2",
+          "author": "Mark Twain",
+          "texts": [
+            {
+              "id": "quotetext_courage_2_en",
+              "language": "en",
+              "text": "Courage is resistance to fear, mastery of fear—not absence of fear."
+            }
+          ]
+        },
+        {
+          "id": "quote_courage_3",
+          "author": "Winston Churchill",
+          "texts": [
+            {
+              "id": "quotetext_courage_3_en",
+              "language": "en",
+              "text": "Success is not final, failure is not fatal: it is the courage to continue that counts."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

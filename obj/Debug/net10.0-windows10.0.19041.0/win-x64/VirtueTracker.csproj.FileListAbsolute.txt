@@ -1157,3 +1157,4 @@ C:\Users\ccwar\OneDrive\Documents\GitHub\VirtueTracker\obj\Debug\net10.0-windows
 C:\Users\ccwar\OneDrive\Documents\GitHub\VirtueTracker\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt
 C:\Users\ccwar\OneDrive\Documents\GitHub\VirtueTracker\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Users\ccwar\OneDrive\Documents\GitHub\VirtueTracker\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Users\ccwar\OneDrive\Documents\GitHub\VirtueTracker\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Resources\Seed\virtues.json

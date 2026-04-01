@@ -1,0 +1,161 @@
+@page "/virtue/{VirtueId}"
+@using VirtueTracker.Interfaces
+@using VirtueTracker.Models
+
+@inject IMeaningRepository MeaningRepo
+@inject IQuoteRepository QuoteRepo
+@inject ILanguageService LanguageService
+@inject IShuffleQuoteService ShuffleService
+@inject IVirtueRepository VirtueRepo
+
+<h2>@VirtueObject?.Name</h2>
+
+<!-- Language Selector -->
+<select @onchange="ChangeLanguage" value="@LanguageService.CurrentLanguage">
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+</select>
+
+@if (Meaning is not null)
+{
+    <h3>Meaning</h3>
+
+    <MeaningCard Meaning="Meaning"
+                 MeaningTexts="new List<MeaningText> { SelectedMeaningText! }" />
+}
+
+@if (RandomQuote is not null)
+{
+    <h3>Random Quote</h3>
+    <QuoteCard Quote="RandomQuote" Text="RandomQuoteText" />
+}
+
+<button @onclick="NextRandomQuote">Next Random Quote</button>
+
+@if (Quotes is not null)
+{
+    <h3>All Quotes</h3>
+
+    @foreach (var q in Quotes)
+    {
+        <QuoteCard Quote="q" Text="SelectedQuoteTexts[q.Id]" />
+    }
+}
+
+@code {
+    [Parameter] required public string VirtueId { get; set; }
+    Virtue? VirtueObject;
+    Meaning? Meaning;
+    List<Quote>? Quotes;
+    Dictionary<string, List<MeaningText>> MeaningTexts = new();
+    Dictionary<string, List<QuoteText>> QuoteTexts = new();
+    MeaningText? SelectedMeaningText;
+    Dictionary<string, QuoteText?> SelectedQuoteTexts = new();
+    // Random quote state
+    Quote? RandomQuote;
+    QuoteText? RandomQuoteText;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LanguageService.OnLanguageChanged += HandleLanguageChanged;
+
+        await LoadDataAsync();
+        ApplyLanguageFilter();
+        await NextRandomQuote();
+    }
+
+    private async Task LoadDataAsync()
+    {
+        VirtueObject = await VirtueRepo.GetVirtueAsync(VirtueId);
+
+        // Load Meaning (1-to-1)
+        Meaning = await MeaningRepo.GetMeaningAsync(VirtueId);
+
+        // Load MeaningTexts
+        MeaningTexts[Meaning.Id] = await MeaningRepo.GetMeaningTextsAsync(Meaning.Id);
+
+        // Load Quotes for this Virtue (updated!)
+        Quotes = await QuoteRepo.GetAllQuotesVirtueAsync(VirtueId);
+
+        // Load QuoteTexts for each Quote
+        foreach (var q in Quotes)
+        {
+            QuoteTexts[q.Id] = await QuoteRepo.GetQuoteTextsAsync(q.Id);
+        }
+    }
+
+    private void ApplyLanguageFilter()
+    {
+        var lang = LanguageService.CurrentLanguage;
+        if (Meaning is null) return;
+        // Meaning text (null-safe)
+        if (MeaningTexts.TryGetValue(Meaning.Id, out var mList) && mList is not null)
+        {
+            SelectedMeaningText =
+                mList.FirstOrDefault(t => t.LanguageCode == lang)
+                ?? mList.FirstOrDefault();
+        }
+
+        // Quote texts (null-safe)
+        SelectedQuoteTexts.Clear();
+        if (Quotes is null) return;
+        foreach (var q in Quotes)
+        {
+            if (QuoteTexts.TryGetValue(q.Id, out var qList) && qList is not null)
+            {
+                SelectedQuoteTexts[q.Id] =
+                    qList.FirstOrDefault(t => t.LanguageCode == lang)
+                    ?? qList.FirstOrDefault();
+            }
+            else
+            {
+                SelectedQuoteTexts[q.Id] = null;
+            }
+        }
+
+        // Update random quote text if needed
+        if (RandomQuote is not null &&
+            QuoteTexts.TryGetValue(RandomQuote.Id, out var rList))
+        {
+            RandomQuoteText =
+                rList.FirstOrDefault(t => t.LanguageCode == lang)
+                ?? rList.FirstOrDefault();
+        }
+
+        StateHasChanged();
+    }
+
+    private async Task NextRandomQuote()
+    {
+        if (VirtueObject is null)
+            return;
+
+        // Shuffle by VirtueId (updated!)
+        RandomQuote = await ShuffleService.GetNextQuoteAsync(VirtueObject.Id);
+
+        // Get the correct language text
+        if (QuoteTexts.TryGetValue(RandomQuote.Id, out var list))
+        {
+            RandomQuoteText =
+                list.FirstOrDefault(t => t.LanguageCode == LanguageService.CurrentLanguage)
+                ?? list.FirstOrDefault();
+        }
+
+        StateHasChanged();
+    }
+
+    private void ChangeLanguage(ChangeEventArgs e)
+    {
+        LanguageService.SetLanguage(e.Value?.ToString() ?? "en");
+    }
+
+    private void HandleLanguageChanged()
+    {
+        ApplyLanguageFilter();
+    }
+
+    public void Dispose()
+    {
+        LanguageService.OnLanguageChanged -= HandleLanguageChanged;
+    }
+}

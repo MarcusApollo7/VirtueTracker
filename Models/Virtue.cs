@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using SQLite;
 namespace VirtueTracker.Models;
 

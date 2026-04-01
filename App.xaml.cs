@@ -1,14 +1,17 @@
-﻿namespace VirtueTracker;
+﻿using VirtueTracker.Interfaces;
+
+namespace VirtueTracker;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
-	}
+	public App(IDatabaseService databaseService)
+    {
+        InitializeComponent();
 
-	protected override Window CreateWindow(IActivationState? activationState)
-	{
-		return new Window(new MainPage()) { Title = "VirtueTracker" };
-	}
+        // Ensure DB initialization runs before anything else
+        Task.Run(async () => await databaseService.InitializeAsync());
+
+        MainPage = new AppShell();
+    }
+
 }

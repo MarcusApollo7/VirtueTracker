@@ -13,7 +13,7 @@ public class Quote
     public DateTime? Date {get; set;}
 }
 
-public class QuoteText()
+public class QuoteText
 {
     [PrimaryKey]
     public string Id {get; set;} = Guid.NewGuid().ToString();

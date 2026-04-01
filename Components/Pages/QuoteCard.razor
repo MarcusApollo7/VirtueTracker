@@ -1,0 +1,12 @@
+@using VirtueTracker.Models
+
+<div class = "quote-card">
+    <blockquote>@Quote.OLangText</blockquote>
+    <blockquote>@Text</blockquote>
+    <footer>-@Quote.Author</footer>
+</div>
+
+@code{
+    [Parameter] required public Quote Quote {get; set;}
+    [Parameter] required public QuoteText? Text {get; set;}
+}

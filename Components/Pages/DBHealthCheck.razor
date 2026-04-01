@@ -1,0 +1,43 @@
+@using VirtueTracker.Services.Diagnostics
+@using VirtueTracker.Interfaces
+@using VirtueTracker.Services
+
+
+<button @onclick="RunHealthCheck">Run DB Health Check</button>
+
+@if (report != null)
+{
+    <div>
+        <p><strong>Healthy:</strong> @report.IsHealthy</p>
+        <p><strong>File Exists:</strong> @report.FileExists</p>
+        <p><strong>File Size:</strong> @report.FileSizeBytes bytes</p>
+
+        <p><strong>Virtues:</strong> @report.VirtueCount</p>
+        <p><strong>Meanings:</strong> @report.MeaningCount</p>
+        <p><strong>MeaningTexts:</strong> @report.MeaningTextCount</p>
+        <p><strong>Quotes:</strong> @report.QuoteCount</p>
+        <p><strong>QuoteTexts:</strong> @report.QuoteTextCount</p>
+
+        @if (!report.IsHealthy)
+        {
+            <h4>Errors</h4>
+            <ul>
+                @foreach (var error in report.Errors)
+                {
+                    <li>@error</li>
+                }
+            </ul>
+        }
+    </div>
+}
+
+@code {
+    private DatabaseHealthReport? report;
+
+    [Inject] public IDatabaseService DatabaseService { get; set; } = default!;
+
+    private async Task RunHealthCheck()
+    {
+        report = await DatabaseService.CheckHealthAsync();
+    }
+}

@@ -1,4 +1,5 @@
 using SQLite;
+using VirtueTracker.Services.Diagnostics;
 
 namespace VirtueTracker.Interfaces;
 public interface IDatabaseService
@@ -7,5 +8,6 @@ public interface IDatabaseService
     Task InitializeAsync();
     Task ResetDatabaseAsync();
     public SQLiteAsyncConnection Connection {get; }
+    Task<DatabaseHealthReport> CheckHealthAsync();
 
 }

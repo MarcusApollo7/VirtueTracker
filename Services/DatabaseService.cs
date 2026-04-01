@@ -17,7 +17,9 @@ public class DatabaseService : IDatabaseService
     {
         Console.WriteLine("DATABASE SERVICE CREATED");
         _dbPath = Path.Combine(FileSystem.AppDataDirectory, DbFileName);
+        Console.WriteLine("AppDataDirectory = " + FileSystem.AppDataDirectory);
         Console.WriteLine("DB PATH = " + _dbPath);
+
     }
     static DatabaseService()
     {
@@ -32,18 +34,43 @@ public class DatabaseService : IDatabaseService
         // Ensure directory exists
         Directory.CreateDirectory(FileSystem.AppDataDirectory);
 
+        Console.WriteLine("=== CREATING CONNCETION ===");
         // Create connection
+        if (File.Exists(_dbPath) && new FileInfo(_dbPath).Length == 0)
+        {
+            Console.WriteLine("Corrupted DB detected — deleting...");
+            File.Delete(_dbPath);
+        }
         Connection = new SQLiteAsyncConnection(_dbPath);
-        await Connection.ExecuteAsync("PRAGMA foreign_keys = ON;");
-        await Connection.ExecuteAsync("PRAGMA busy_timeout = 2000;");
 
+        Console.WriteLine("=== CONNCETION ESTABLISHED ===");
+
+
+        await Connection.CreateTableAsync<__Init__>();
+
+
+        Console.WriteLine("PRAGMA 1");
+        await Connection.ExecuteAsync("PRAGMA foreign_keys = ON;");
+        Console.WriteLine("PRAGMA 2");
+        await Connection.ExecuteAsync("PRAGMA busy_timeout = 2000;");
+        Console.WriteLine("PRAGMA 3");
+
+        
+        Console.WriteLine("=== CREATING TABLES ===");
         // Create tables
+        Console.WriteLine("Creating Virtue table...");
         await Connection.CreateTableAsync<Virtue>();
+        Console.WriteLine("Virtue table created.");
+
+        Console.WriteLine("Creating Meaning table...");
         await Connection.CreateTableAsync<Meaning>();
+        Console.WriteLine("Meaning table created.");
+
         await Connection.CreateTableAsync<MeaningText>();
         await Connection.CreateTableAsync<Quote>();
         await Connection.CreateTableAsync<QuoteText>();
 
+        Console.WriteLine("=== SEEDING IF EMPTY ===");
         // Seed if empty
         await SeedIfEmptyAsync();
 
@@ -59,8 +86,6 @@ public class DatabaseService : IDatabaseService
             foreach (var e in health.Errors)
                 Console.WriteLine("DB ERROR: " + e);
         }
-
-        IsReady = true;
     }
     private async Task SeedIfEmptyAsync()
     {
@@ -239,4 +264,10 @@ public class DatabaseService : IDatabaseService
 
         return report;
     }
+}
+
+public class __Init__
+{
+    [PrimaryKey]
+    public int Id { get; set; }
 }
