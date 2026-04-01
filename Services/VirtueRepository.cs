@@ -1,13 +1,12 @@
-using MauiBlazorWeb.Shared.Models;
-using MauiBlazorWeb.Shared.Interfaces;
+using VirtueTracker.Models;
 
-namespace MauiBlazorWeb.Services;
+namespace VirtueTracker.Services;
 
-public class VirtueRepository : IVirtueRepository
+public class VirtueRepository
 {
-    private readonly IDatabaseService _db;
+    private readonly DatabaseService _db;
 
-    public VirtueRepository(IDatabaseService db)
+    public VirtueRepository(DatabaseService db)
     {
         _db = db;
     }

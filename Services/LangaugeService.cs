@@ -1,7 +1,8 @@
-using MauiBlazorWeb.Shared.Interfaces;
 
-namespace MauiBlazorWeb.Services;
-public class LanguageService : ILanguageService
+using VirtueTracker.Models;
+
+namespace VirtueTracker.Services;
+public class LanguageService
 {
     private string _currentLanguage = "en";
 

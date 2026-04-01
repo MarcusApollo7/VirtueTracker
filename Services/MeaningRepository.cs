@@ -1,12 +1,12 @@
 using SQLite;
-using MauiBlazorWeb.Shared.Models;
-using MauiBlazorWeb.Shared.Interfaces;
+using VirtueTracker.Models;
 
-public class MeaningRepository : IMeaningRepository
+namespace VirtueTracker.Services;
+public class MeaningRepository
 {
     private readonly SQLiteAsyncConnection _db;
 
-    public MeaningRepository(IDatabaseService databaseService)
+    public MeaningRepository(DatabaseService databaseService)
     {
         _db = databaseService.Connection;
     }

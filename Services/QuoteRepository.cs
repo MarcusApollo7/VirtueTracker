@@ -1,12 +1,13 @@
 using SQLite;
-using MauiBlazorWeb.Shared.Models;
-using MauiBlazorWeb.Shared.Interfaces;
+using VirtueTracker.Models;
 
-public class QuoteRepository : IQuoteRepository
+namespace VirtueTracker.Services;
+
+public class QuoteRepository
 {
     private readonly SQLiteAsyncConnection _db;
 
-    public QuoteRepository(IDatabaseService databaseService)
+    public QuoteRepository(DatabaseService databaseService)
     {
         _db = databaseService.Connection;
     }

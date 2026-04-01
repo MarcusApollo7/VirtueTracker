@@ -1,9 +1,8 @@
 using SQLite;
-using MauiBlazorWeb.Shared.Models;
-using MauiBlazorWeb.Shared.Interfaces;
+using VirtueTracker.Models;
 
-namespace MauiBlazorWeb.Services;
-public class DatabaseService : IDatabaseService
+namespace VirtueTracker.Services;
+public class DatabaseService
     {
     private const string DbFileName = "Virtues.db";
     private readonly string _dbPath;

@@ -1,8 +1,6 @@
-using MauiBlazorWeb.Shared.Services;
+namespace VirtueTracker.Services;
 
-namespace MauiBlazorWeb.Services;
-
-public class FormFactor : IFormFactor
+public class FormFactor
 {
     public string GetFormFactor()
     {

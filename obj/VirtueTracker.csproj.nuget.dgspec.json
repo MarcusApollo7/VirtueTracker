@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj": {}
+    "C:\\Users\\ccwar\\OneDrive\\Documents\\GitHub\\VirtueTracker\\VirtueTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj": {
+    "C:\\Users\\ccwar\\OneDrive\\Documents\\GitHub\\VirtueTracker\\VirtueTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
+        "projectUniqueName": "C:\\Users\\ccwar\\OneDrive\\Documents\\GitHub\\VirtueTracker\\VirtueTracker.csproj",
         "projectName": "VirtueTracker",
-        "projectPath": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
+        "projectPath": "C:\\Users\\ccwar\\OneDrive\\Documents\\GitHub\\VirtueTracker\\VirtueTracker.csproj",
         "packagesPath": "C:\\Users\\ccwar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ccwar\\VirtueTracker\\obj\\",
+        "outputPath": "C:\\Users\\ccwar\\OneDrive\\Documents\\GitHub\\VirtueTracker\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -65,15 +65,15 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.5, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -81,9 +81,13 @@
               "version": "[10.0.4, )",
               "autoReferenced": true
             },
-            "SQLite.Net-PCL": {
+            "SQLitePCLRaw.bundle_green": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[2.1.11, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [
@@ -395,15 +399,15 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.5, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -411,9 +415,13 @@
               "version": "[10.0.4, )",
               "autoReferenced": true
             },
-            "SQLite.Net-PCL": {
+            "SQLitePCLRaw.bundle_green": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[2.1.11, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [
@@ -725,15 +733,15 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.5, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -741,9 +749,13 @@
               "version": "[10.0.4, )",
               "autoReferenced": true
             },
-            "SQLite.Net-PCL": {
+            "SQLitePCLRaw.bundle_green": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[2.1.11, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [
@@ -1056,19 +1068,23 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.5, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.20, )"
+              "version": "[10.0.51, )"
             },
-            "SQLite.Net-PCL": {
+            "SQLitePCLRaw.bundle_green": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[2.1.11, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [

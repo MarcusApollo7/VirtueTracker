@@ -1,12 +1,13 @@
-using MauiBlazorWeb.Shared.Interfaces;
-using MauiBlazorWeb.Shared.Models;
+using VirtueTracker.Models;
 
-public class ShuffleQuoteService : IShuffleQuoteService
+namespace VirtueTracker.Services;
+
+public class ShuffleQuoteService
 {
-    private readonly IQuoteRepository _repo;
+    private readonly QuoteRepository _repo;
     private Dictionary<string, List<Quote>> _quotes = [];
     private readonly Random _random = new();
-    public ShuffleQuoteService(IQuoteRepository repo)
+    public ShuffleQuoteService(QuoteRepository repo)
     {
         _repo = repo;
     }
