@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "axIyil1Yz+E=",
+  "dgSpecHash": "N/Z3ULaeJ9k=",
   "success": true,
   "projectFilePath": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,8 @@
     "C:\\Users\\ccwar\\.nuget\\packages\\microsoft.web.webview2\\1.0.3179.45\\microsoft.web.webview2.1.0.3179.45.nupkg.sha512",
     "C:\\Users\\ccwar\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\ccwar\\.nuget\\packages\\microsoft.windowsappsdk\\1.7.250909003\\microsoft.windowsappsdk.1.7.250909003.nupkg.sha512",
+    "C:\\Users\\ccwar\\.nuget\\packages\\sqlite.net-pcl\\3.1.1\\sqlite.net-pcl.3.1.1.nupkg.sha512",
+    "C:\\Users\\ccwar\\.nuget\\packages\\sqlite.net.core-pcl\\3.1.1\\sqlite.net.core-pcl.3.1.1.nupkg.sha512",
     "C:\\Users\\ccwar\\.nuget\\packages\\xamarin.android.glide\\4.16.0.14\\xamarin.android.glide.4.16.0.14.nupkg.sha512",
     "C:\\Users\\ccwar\\.nuget\\packages\\xamarin.android.glide.annotations\\4.16.0.14\\xamarin.android.glide.annotations.4.16.0.14.nupkg.sha512",
     "C:\\Users\\ccwar\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.16.0.14\\xamarin.android.glide.disklrucache.4.16.0.14.nupkg.sha512",
@@ -148,5 +150,30 @@
     "C:\\Users\\ccwar\\.nuget\\packages\\microsoft.netcore.app.ref\\10.0.5\\microsoft.netcore.app.ref.10.0.5.nupkg.sha512",
     "C:\\Users\\ccwar\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'SQLite.Net-PCL 3.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0-ios26.2'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
+      "libraryId": "SQLite.Net-PCL",
+      "targetGraphs": [
+        "net10.0-ios"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'SQLite.Net.Core-PCL 3.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0-ios26.2'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ccwar\\VirtueTracker\\VirtueTracker.csproj",
+      "libraryId": "SQLite.Net.Core-PCL",
+      "targetGraphs": [
+        "net10.0-ios"
+      ]
+    }
+  ]
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VirtueTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c8bad07b09c9989a85081f0c9699434d27f5514a")]
 [assembly: System.Reflection.AssemblyProductAttribute("VirtueTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VirtueTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
